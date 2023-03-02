@@ -49,7 +49,7 @@ const Header = () => {
           whileInView = {{scale: [0, 1]}}
           transition = {{duration: 1, ease: 'easeInOut'}}
           className = 'overlay_circle'
-          src = {images.circle}
+          src = {images.recbg}
           alt = 'profile_circle'
         />
       </motion.div>

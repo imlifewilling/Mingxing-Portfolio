@@ -5,7 +5,7 @@ const SocialMedia = () => {
   return (
     <div className='app__social'>
         <div>
-            <BsGithub />
+            <BsGithub size='2x'/>
         </div>
         <div>
             <BsLinkedin />

@@ -5,10 +5,14 @@ const SocialMedia = () => {
   return (
     <div className='app__social'>
         <div>
-            <BsGithub size='2x'/>
+          <a href = 'https://github.com/imlifewilling'>
+            <BsGithub />
+          </a>
         </div>
         <div>
+          <a href = 'https://www.linkedin.com/in/mingxing-li-90016852/'>
             <BsLinkedin />
+          </a>
         </div>
     </div>
   )

@@ -10,7 +10,6 @@ const Footer = () => {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  console.log(process.env.SERVICE_ID)
   const { from_name, email, message } = formData;
 
   const handleChangeInput = (e) => {
@@ -52,8 +51,12 @@ const Footer = () => {
   return (
     <>
       <h2 className="head-text">Take a coffee & chat with me</h2>
-
+      {/* <div><a className="resume" href={images.Resume} download>Resume</a></div> */}
       <div className="app__footer-cards">
+        <div className="app__footer-card ">
+          <img src={images.resumepg} alt="resumepg" />
+          <a href = {images.Resume} download="Mingxing Li_Resume" className="p-text">Resume</a>
+        </div>
         <div className="app__footer-card ">
           <img src={images.email} alt="email" />
           <a href="mailto:lmx4wo@gmail.com" className="p-text">lmx4wo@gmail.com</a>
@@ -68,9 +71,6 @@ const Footer = () => {
           <div className="app__flex">
             <input className="p-text" type="text" placeholder="Your Name" name="from_name" value={from_name} onChange={handleChangeInput} />
           </div>
-          {/* <div className="app__flex">
-            <input className="p-text" type="text" placeholder="To Name" name="to_name" value={to_name} onChange={handleChangeInput} />
-          </div> */}
           <div className="app__flex">
             <input className="p-text" type="text" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
           </div>

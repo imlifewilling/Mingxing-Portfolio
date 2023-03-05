@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 
 
-import {AppWrap} from '../../wrapper';
+import {AppWrap, MotionWrap} from '../../wrapper';
 import {urlFor, client} from '../../client';
 
 import './Skills.scss';
@@ -28,9 +28,9 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className='head-text'>Skills and Experience</h2>  
+      <h2 className='head-text'>Skills & Experiences</h2>  
 
-      <div className='app__skills-contrainer'>
+      <div className='app__skills-container'>
         <motion.div className='app__skills-list'>
           {skills?.map((skill) => (
             <motion.div
@@ -98,4 +98,8 @@ const Skills = () => {
   )
 };
 
-export default Skills;
+export default AppWrap(
+  MotionWrap(Skills, 'app_skills'), 
+  'skills',
+  "app__whitebg"
+);

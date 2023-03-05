@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import {send} from 'emailjs-com';
 
 import { images } from '../../constants';
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
 import './Footer.scss';
 
 const Footer = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ from_name: '', email: '', message: '' });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const { username, email, message } = formData;
+  console.log(process.env.SERVICE_ID)
+  const { from_name, email, message } = formData;
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
@@ -20,19 +21,32 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    const contact = {
-      _type: 'contact',
-      name: formData.username,
-      email: formData.email,
-      message: formData.message,
-    };
+    // const contact = {
+    //   _type: 'contact',
+    //   name: formData.username,
+    //   email: formData.email,
+    //   message: formData.message,
+    // };
 
-    client.create(contact)
-      .then(() => {
+    // client.create(contact)
+    //   .then(() => {
+    //     setLoading(false);
+    //     setIsFormSubmitted(true);
+    //   })
+    //   .catch((err) => console.log(err));
+
+    send(
+      process.env.REACT_APP_SERVICE_ID,
+      process.env.REACT_APP_TEMPLATE_ID,
+      formData,
+      process.env.REACT_APP_User_ID
+    ).then((response) => {
         setLoading(false);
         setIsFormSubmitted(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log('FAILED...', err);
+    })
   };
 
   return (
@@ -52,10 +66,13 @@ const Footer = () => {
       {!isFormSubmitted ? (
         <div className="app__footer-form app__flex">
           <div className="app__flex">
-            <input className="p-text" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder="Your Name" name="from_name" value={from_name} onChange={handleChangeInput} />
           </div>
+          {/* <div className="app__flex">
+            <input className="p-text" type="text" placeholder="To Name" name="to_name" value={to_name} onChange={handleChangeInput} />
+          </div> */}
           <div className="app__flex">
-            <input className="p-text" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+            <input className="p-text" type="text" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
           </div>
           <div>
             <textarea

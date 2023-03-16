@@ -5,12 +5,7 @@ import { AppWrap, MotionWrap } from '../../wrapper';
 import { urlFor, client } from '../../client';
 import './About.scss';
 
-// const abouts = [
-//   {title: 'Web development', description: 'I am an experienced web developer', imgUrl: images.about01},
-//   {title: 'Full Stack Development', description: 'I am an experienced full stack developer', imgUrl: images.about02},
-//   {title: 'Data', description: 'I have expereince with SQL', imgUrl: images.about03},
-//   {title: 'Scientific Research', description: 'I am an experienced sicentist', imgUrl: images.about04}
-// ]
+
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);

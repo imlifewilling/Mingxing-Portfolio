@@ -32,12 +32,12 @@ const Skills = () => {
 
       <div className='app__skills-container'>
         <motion.div className='app__skills-list'>
-          {skills?.map((skill) => (
+          {skills?.map((skill, index) => (
             <motion.div
               whileInView={{opacity:[0, 1]}}
               transition ={{duration: 0.5}}
               className ='app__skills-item app__flex'
-              key={skill.name}
+              key={skill.name + index}
             >
               <div 
                 className='app__flex'
@@ -51,11 +51,6 @@ const Skills = () => {
         </motion.div>
 
         <motion.div className='app__skills-exp'>
-        {/* <a id="my-anchor-element">◕‿‿◕</a>
-        <Tooltip 
-          anchorSelect="#my-anchor-element" 
-          content="Hello world!" 
-        /> */}
           {
             experiences.map((experience, index) =>(
               <motion.div
@@ -75,7 +70,7 @@ const Skills = () => {
                         data-tooltip-id={work.name+work.company}
                         data-tooltip-content={work.desc}
                         data-tooltip-place="top"
-                        key={work.name+work.company}
+                        key={work.name + work.company}
                       >
                         <h4 className="bold-text">{work.name}</h4>
                         <p className="p-text">{work.company}</p>

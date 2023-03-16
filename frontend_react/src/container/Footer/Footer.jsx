@@ -20,20 +20,6 @@ const Footer = () => {
   const handleSubmit = () => {
     setLoading(true);
 
-    // const contact = {
-    //   _type: 'contact',
-    //   name: formData.username,
-    //   email: formData.email,
-    //   message: formData.message,
-    // };
-
-    // client.create(contact)
-    //   .then(() => {
-    //     setLoading(false);
-    //     setIsFormSubmitted(true);
-    //   })
-    //   .catch((err) => console.log(err));
-
     send(
       process.env.REACT_APP_SERVICE_ID,
       process.env.REACT_APP_TEMPLATE_ID,
@@ -51,7 +37,6 @@ const Footer = () => {
   return (
     <>
       <h2 className="head-text">Take a coffee & chat with me</h2>
-      {/* <div><a className="resume" href={images.Resume} download>Resume</a></div> */}
       <div className="app__footer-cards">
         <div className="app__footer-card ">
           <img src={images.resumepg} alt="resumepg" />

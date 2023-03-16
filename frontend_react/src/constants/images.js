@@ -23,10 +23,12 @@ import about04 from '../assets/about04.png';
 import profile from '../assets/profile.png';
 import circle from '../assets/circle.svg';
 import logo from '../assets/logo.png';
+import linkicon from '../assets/linkicon.png';
 
 import portfolioweb from '../assets/portfolioweb.png'
 
 export default {
+  linkicon,
   portfolioweb,
   resumepg,
   Resume,

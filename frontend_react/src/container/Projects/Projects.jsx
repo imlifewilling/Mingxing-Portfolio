@@ -6,7 +6,7 @@ import {AppWrap, MotionWrap} from '../../wrapper';
 import {urlFor, client} from '../../client';
 import './Projects.scss';
 
-const Work = () => {
+const Project = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [animateCard, setAnimateCard] = useState({y: 0, opacity: 1});
   const [works, setWorks] = useState([]);
@@ -114,7 +114,7 @@ const Work = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Work, 'app_works'), 
-  'work',
+  MotionWrap(Project, 'app_projects'), 
+  'projects',
   "app__primaryby"
 );

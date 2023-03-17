@@ -23,13 +23,13 @@ export default{
             title: 'Certification Link',
             type: 'string',
           },
-        {
+          {
             name:'icon',
             title:'Icon',
             type: 'image',
             options: {
               hotspot: true,
             },
-        }
+        },
     ]
 }
